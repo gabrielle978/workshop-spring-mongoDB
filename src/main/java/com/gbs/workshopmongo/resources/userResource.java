@@ -6,7 +6,9 @@ import com.gbs.workshopmongo.services.userService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,5 +35,16 @@ public class userResource {
         User obj = service.findById(id);
         return ResponseEntity.ok().body(new userDTO(obj)); //metodo retorna o listDTO
 
+    }
+
+    @PostMapping
+    public ResponseEntity<Void> insert (@RequestBody userDTO objDTO){
+        User obj = service.fromDTO(objDTO); //conversão de DTO para usuário/user
+        obj = service.insert(obj); //chamada do insert
+
+        //(cabeçalho com a URL do novo recurso criado)
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();//vai pegar o novo endereço do objeto inserido
+
+        return ResponseEntity.created(uri).build();
     }
 }
