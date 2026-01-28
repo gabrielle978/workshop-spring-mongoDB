@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 public class instantiation implements CommandLineRunner {
@@ -21,7 +22,8 @@ public class instantiation implements CommandLineRunner {
         User gabi = new User(null, "Gabrielle Bassiquete", "gbassiquete@gmail.com");
         User maria = new User(null, "Maria", "maria@gmail.com");
         User alex = new User(null, "Alex", "alexex@gmail.com");
+        User alice = new User(null, "Alice", "alice@gmail.com");
 
-        userRepositoryConfig.saveAll(Arrays.asList(gabi, maria, alex));
+        userRepositoryConfig.saveAll(Arrays.asList(gabi, maria, alex, alice));
     }
 }
