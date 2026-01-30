@@ -3,6 +3,7 @@
    - A crud project (Create/Read/Update/Delete) to register people and their posts in a JSON model.
    - The NoSQL databases choosen to be used, is a document-based and key-value store model. Which means that the data is kept in only a document and has the object structure already associated.
    - For instance:
+     
      <img width="841" height="523" alt="image" src="https://github.com/user-attachments/assets/c322492a-b397-4646-abb4-e840bd9a4b7f" />
 
 ## 🛠️Used tools:
