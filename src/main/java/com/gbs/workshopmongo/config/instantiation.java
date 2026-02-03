@@ -47,5 +47,8 @@ public class instantiation implements CommandLineRunner {
 
         //depois salva-se o post com o id do usuário
         postRepository.saveAll(Arrays.asList(post1,post2));
+
+        maria.getPosts().addAll(Arrays.asList(post1,post2));
+        userRepositoryConfig.save(maria);
     }
 }
