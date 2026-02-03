@@ -2,6 +2,7 @@ package com.gbs.workshopmongo.config;
 
 import com.gbs.workshopmongo.domain.Post;
 import com.gbs.workshopmongo.dto.authorDTO;
+import com.gbs.workshopmongo.dto.commentDTO;
 import com.gbs.workshopmongo.repository.userRepository;
 import com.gbs.workshopmongo.domain.User;
 import com.gbs.workshopmongo.repository.postRepository;
@@ -46,6 +47,12 @@ public class instantiation implements CommandLineRunner {
         Post post2= new Post(null, sdf.parse("02/02/2026"), "Bom dia Brasil", "Ansiosa para a prova de hoje!", new authorDTO(gabi));
         Post post3= new Post(null, sdf.parse("02/02/2026"), "Boa noite", "Fiz a prova, não passei :(", new authorDTO(gabi));
 
+        commentDTO c1 = new commentDTO("aaaa que pena, na próxima você passa com certeza",new authorDTO(alice), sdf.parse("02/02/2026"));
+        commentDTO c2 = new commentDTO("vc deu seu melhor, é o que importa",new authorDTO(alex), sdf.parse("02/02/2026"));
+        commentDTO c3 = new commentDTO("também fiz a prova hoje, reprovei por pouco :/",new authorDTO(maria), sdf.parse("02/02/2026"));
+
+        //associação de posts com comments
+        post3.getComments().addAll(Arrays.asList(c1, c2, c3));
 
         //depois salva-se o post com o id do usuário
         postRepository.saveAll(Arrays.asList(post1,post2,post3));
