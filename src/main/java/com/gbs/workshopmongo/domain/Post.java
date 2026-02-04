@@ -20,9 +20,7 @@ public class Post {
     private String body;
     private authorDTO author;
 
-    public List<commentDTO> getComments() {
-        return comments;
-    }
+    private List<commentDTO> comments = new ArrayList<>();
 
     public Post() {
     }
@@ -79,7 +77,9 @@ public class Post {
         this.comments = comments;
     }
 
-    private List<commentDTO> comments = new ArrayList<>();
+    public List<commentDTO> getComments() {
+        return comments;
+    }
 
 
     @Override
